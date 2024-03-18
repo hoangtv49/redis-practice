@@ -6,13 +6,13 @@ import { createClient } from 'redis';
 
   // Data Types
   // String
-  await client.set('string', 'hello redis');
+  // await client.set('string', 'hello redis');
 
   // JSON
-  await client.set(
-    'json',
-    JSON.stringify({ learner: 'Hoang', subject: 'redis', score: 10 })
-  );
+  // await client.set(
+  //   'json',
+  //   JSON.stringify({ learner: 'Hoang', subject: 'redis', score: 10 })
+  // );
 
   // Lists
   // Act as queue
@@ -53,6 +53,21 @@ import { createClient } from 'redis';
   // console.log(await client.zAdd('bike1', { score: 3, value: 'value' }));
   // console.log(await client.zAdd('bike1', { score: 2, value: 'value2' }));
   // console.log(await client.zRange('bike1', 0, -1));
+
+  // Stream
+  // console.log(await client.xAdd('stream', "*", { line: 1 }));
+  // console.log(await client.xAdd('key', '*', { field: 'value' }))
+  // console.log(await client.xLen('key'));
+  // console.log(await client.xRange('key', '-', '+', {COUNT: 2} ));
+
+  // Geospatial
+  // console.log(await client.geoAdd('hoangPos', { longitude: 1, latitude: 1, member: 'hoang1' }));
+
+
+  // Bitmaps
+  // console.log(await client.setBit('doneTask1', 0, 1));
+  // console.log(await client.getBit('doneTask1', 0));
+
 
 
   await client.disconnect();
